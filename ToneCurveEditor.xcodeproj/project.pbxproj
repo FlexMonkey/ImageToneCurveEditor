@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E38F2BE19C2B29100B86916 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2BD19C2B29100B86916 /* AppDelegate.swift */; };
+		3E38F2C019C2B29100B86916 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2BF19C2B29100B86916 /* ViewController.swift */; };
+		3E38F2C319C2B29100B86916 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E38F2C119C2B29100B86916 /* Main.storyboard */; };
+		3E38F2C519C2B29100B86916 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E38F2C419C2B29100B86916 /* Images.xcassets */; };
+		3E38F2C819C2B29100B86916 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E38F2C619C2B29100B86916 /* LaunchScreen.xib */; };
+		3E38F2D419C2B29100B86916 /* ToneCurveEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2D319C2B29100B86916 /* ToneCurveEditorTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3E38F2CE19C2B29100B86916 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E38F2B019C2B29000B86916 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E38F2B719C2B29100B86916;
+			remoteInfo = ToneCurveEditor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3E38F2B819C2B29100B86916 /* ToneCurveEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToneCurveEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E38F2BC19C2B29100B86916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E38F2BD19C2B29100B86916 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3E38F2BF19C2B29100B86916 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3E38F2C219C2B29100B86916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3E38F2C419C2B29100B86916 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3E38F2C719C2B29100B86916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3E38F2CD19C2B29100B86916 /* ToneCurveEditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToneCurveEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E38F2D219C2B29100B86916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E38F2D319C2B29100B86916 /* ToneCurveEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneCurveEditorTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E38F2B519C2B29100B86916 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E38F2CA19C2B29100B86916 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E38F2AF19C2B29000B86916 = {
+			isa = PBXGroup;
+			children = (
+				3E38F2BA19C2B29100B86916 /* ToneCurveEditor */,
+				3E38F2D019C2B29100B86916 /* ToneCurveEditorTests */,
+				3E38F2B919C2B29100B86916 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3E38F2B919C2B29100B86916 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E38F2B819C2B29100B86916 /* ToneCurveEditor.app */,
+				3E38F2CD19C2B29100B86916 /* ToneCurveEditorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3E38F2BA19C2B29100B86916 /* ToneCurveEditor */ = {
+			isa = PBXGroup;
+			children = (
+				3E38F2BD19C2B29100B86916 /* AppDelegate.swift */,
+				3E38F2BF19C2B29100B86916 /* ViewController.swift */,
+				3E38F2C119C2B29100B86916 /* Main.storyboard */,
+				3E38F2C419C2B29100B86916 /* Images.xcassets */,
+				3E38F2C619C2B29100B86916 /* LaunchScreen.xib */,
+				3E38F2BB19C2B29100B86916 /* Supporting Files */,
+			);
+			path = ToneCurveEditor;
+			sourceTree = "<group>";
+		};
+		3E38F2BB19C2B29100B86916 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E38F2BC19C2B29100B86916 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E38F2D019C2B29100B86916 /* ToneCurveEditorTests */ = {
+			isa = PBXGroup;
+			children = (
+				3E38F2D319C2B29100B86916 /* ToneCurveEditorTests.swift */,
+				3E38F2D119C2B29100B86916 /* Supporting Files */,
+			);
+			path = ToneCurveEditorTests;
+			sourceTree = "<group>";
+		};
+		3E38F2D119C2B29100B86916 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E38F2D219C2B29100B86916 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3E38F2B719C2B29100B86916 /* ToneCurveEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E38F2D719C2B29100B86916 /* Build configuration list for PBXNativeTarget "ToneCurveEditor" */;
+			buildPhases = (
+				3E38F2B419C2B29100B86916 /* Sources */,
+				3E38F2B519C2B29100B86916 /* Frameworks */,
+				3E38F2B619C2B29100B86916 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ToneCurveEditor;
+			productName = ToneCurveEditor;
+			productReference = 3E38F2B819C2B29100B86916 /* ToneCurveEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3E38F2CC19C2B29100B86916 /* ToneCurveEditorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E38F2DA19C2B29100B86916 /* Build configuration list for PBXNativeTarget "ToneCurveEditorTests" */;
+			buildPhases = (
+				3E38F2C919C2B29100B86916 /* Sources */,
+				3E38F2CA19C2B29100B86916 /* Frameworks */,
+				3E38F2CB19C2B29100B86916 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E38F2CF19C2B29100B86916 /* PBXTargetDependency */,
+			);
+			name = ToneCurveEditorTests;
+			productName = ToneCurveEditorTests;
+			productReference = 3E38F2CD19C2B29100B86916 /* ToneCurveEditorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3E38F2B019C2B29000B86916 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Simon Gladman";
+				TargetAttributes = {
+					3E38F2B719C2B29100B86916 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					3E38F2CC19C2B29100B86916 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 3E38F2B719C2B29100B86916;
+					};
+				};
+			};
+			buildConfigurationList = 3E38F2B319C2B29000B86916 /* Build configuration list for PBXProject "ToneCurveEditor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3E38F2AF19C2B29000B86916;
+			productRefGroup = 3E38F2B919C2B29100B86916 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3E38F2B719C2B29100B86916 /* ToneCurveEditor */,
+				3E38F2CC19C2B29100B86916 /* ToneCurveEditorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3E38F2B619C2B29100B86916 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E38F2C319C2B29100B86916 /* Main.storyboard in Resources */,
+				3E38F2C819C2B29100B86916 /* LaunchScreen.xib in Resources */,
+				3E38F2C519C2B29100B86916 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E38F2CB19C2B29100B86916 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E38F2B419C2B29100B86916 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E38F2C019C2B29100B86916 /* ViewController.swift in Sources */,
+				3E38F2BE19C2B29100B86916 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E38F2C919C2B29100B86916 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E38F2D419C2B29100B86916 /* ToneCurveEditorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E38F2CF19C2B29100B86916 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E38F2B719C2B29100B86916 /* ToneCurveEditor */;
+			targetProxy = 3E38F2CE19C2B29100B86916 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3E38F2C119C2B29100B86916 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E38F2C219C2B29100B86916 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3E38F2C619C2B29100B86916 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E38F2C719C2B29100B86916 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3E38F2D519C2B29100B86916 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		3E38F2D619C2B29100B86916 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3E38F2D819C2B29100B86916 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ToneCurveEditor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3E38F2D919C2B29100B86916 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ToneCurveEditor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3E38F2DB19C2B29100B86916 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ToneCurveEditorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToneCurveEditor.app/ToneCurveEditor";
+			};
+			name = Debug;
+		};
+		3E38F2DC19C2B29100B86916 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ToneCurveEditorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToneCurveEditor.app/ToneCurveEditor";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3E38F2B319C2B29000B86916 /* Build configuration list for PBXProject "ToneCurveEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E38F2D519C2B29100B86916 /* Debug */,
+				3E38F2D619C2B29100B86916 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E38F2D719C2B29100B86916 /* Build configuration list for PBXNativeTarget "ToneCurveEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E38F2D819C2B29100B86916 /* Debug */,
+				3E38F2D919C2B29100B86916 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3E38F2DA19C2B29100B86916 /* Build configuration list for PBXNativeTarget "ToneCurveEditorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E38F2DB19C2B29100B86916 /* Debug */,
+				3E38F2DC19C2B29100B86916 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3E38F2B019C2B29000B86916 /* Project object */;
+}
