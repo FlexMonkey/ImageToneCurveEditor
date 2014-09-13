@@ -29,7 +29,7 @@ class ToneCurveEditor: UIControl
         super.init(coder: aDecoder)
     }
     
-    var curveValues : [Double] = [0.0, 0.25, 0.5, 0.75, 1.0]
+    var curveValues : [Double] = [Double](count: 5, repeatedValue: 0.0)
     {
         didSet
         {

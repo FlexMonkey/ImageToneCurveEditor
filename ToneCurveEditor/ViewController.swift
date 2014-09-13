@@ -29,13 +29,15 @@ class ViewController: UIViewController
     
     override func viewDidLayoutSubviews()
     {
+        let topMargin = Int(topLayoutGuide.length)
+        
         if view.frame.size.width < view.frame.size.height
         {
             // portrait mode
             let widgetWidth = Int(view.frame.size.width)
             let widgetHeight = Int(view.frame.size.height) / 2
             
-            imageWidget.frame = CGRect(x: 0, y: 0, width: widgetWidth, height: widgetHeight)
+            imageWidget.frame = CGRect(x: 5, y: topMargin, width: widgetWidth - 10, height: widgetHeight - topMargin - topMargin)
             toneCurveEditor.frame = CGRect(x: 0, y: widgetHeight, width: widgetWidth, height: widgetHeight)
         }
         else
@@ -44,7 +46,7 @@ class ViewController: UIViewController
             let widgetWidth = Int(view.frame.size.width) / 2
             let widgetHeight = Int(view.frame.size.height)
             
-            imageWidget.frame = CGRect(x: widgetWidth, y: 0, width: widgetWidth, height: widgetHeight)
+            imageWidget.frame = CGRect(x: widgetWidth, y: topMargin, width: widgetWidth - 5, height: widgetHeight - topMargin - topMargin)
             toneCurveEditor.frame = CGRect(x: 0, y: 0, width: widgetWidth, height: widgetHeight)
         }
     }
