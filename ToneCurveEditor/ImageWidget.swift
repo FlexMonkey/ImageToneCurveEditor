@@ -13,8 +13,10 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
     let blurOveray = UIVisualEffectView(effect: UIBlurEffect())
     let loadImageButton = UIButton(frame: CGRectZero)
     let imageView = UIImageView(frame: CGRectZero)
+    let activityIndicator = UIActivityIndicatorView(frame: CGRectZero)
     
     var loadedImage : UIImage?
+    var filteredImage : UIImage?
     
     weak var viewController : UIViewController?
     
@@ -35,6 +37,11 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         loadImageButton.addTarget(self, action: "loadImageButtonClickHandler:", forControlEvents: .TouchUpInside)
         
         addSubview(loadImageButton)
+        
+        activityIndicator.hidesWhenStopped = true
+        
+        activityIndicator.color = UIColor.blackColor()
+        addSubview(activityIndicator)
     }
     
     required init(coder aDecoder: NSCoder)
@@ -47,30 +54,68 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         var imagePicker = UIImagePickerController()
         
         imagePicker.delegate = self
-        imagePicker.allowsEditing = true
+        imagePicker.allowsEditing = false
+        imagePicker.modalInPopover = false
         imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
         
         viewController!.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    var filterIsRunning : Bool = false
+    {
+        didSet
+        {
+            if filterIsRunning
+            {
+                activityIndicator.startAnimating()
+            }
+            else
+            {
+                activityIndicator.stopAnimating()
+            }
+        }
     }
     
     var curveValues: [Double] = [0.0, 0.25, 0.5, 0.75, 1.0]
     {
         didSet
         {
-            applyFilter()
+            applyFilterAsync()
         }
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
     {
-        loadedImage = info[UIImagePickerControllerOriginalImage] as? UIImage;
+        backgroundBlock?.cancel()
+        filterIsRunning = false
         
-        applyFilter()
+        loadedImage = info[UIImagePickerControllerOriginalImage] as? UIImage;
+  
+        applyFilterAsync()
 
         viewController!.dismissViewControllerAnimated(true, completion: nil)
     }
+
+    var backgroundBlock : Async?
     
-    func applyFilter()
+    func applyFilterAsync()
+    {
+        backgroundBlock = Async.background
+        {
+            if !self.filterIsRunning && self.loadedImage != nil
+            {
+                self.filterIsRunning = true
+                self.filteredImage = ImageWidget.applyFilter(loadedImage: self.loadedImage!, curveValues: self.curveValues)
+            }
+        }
+        .main
+        {
+            self.imageView.image = self.filteredImage
+            self.filterIsRunning = false
+        }
+    }
+    
+    class func applyFilter(#loadedImage: UIImage, curveValues: [Double]) -> UIImage
     {
         let ciContext = CIContext(options: nil)
         let coreImage = CIImage(image: loadedImage)
@@ -87,8 +132,8 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         let filteredImageData = filter.valueForKey(kCIOutputImageKey) as CIImage
         let filteredImageRef = ciContext.createCGImage(filteredImageData, fromRect: filteredImageData.extent())
         let filteredImage = UIImage(CGImage: filteredImageRef)
-        
-        imageView.image = filteredImage
+  
+        return filteredImage
     }
     
     override func layoutSubviews()
@@ -98,5 +143,7 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         loadImageButton.frame = CGRect(x: 20, y: frame.height - 50, width: 100, height: 50)
     
         imageView.frame = CGRect(x: 5, y: 5, width: frame.width - 10, height: frame.height - 10)
+        
+        activityIndicator.frame = CGRect(x: frame.width - 20, y: frame.height - 25, width: 0, height: 0)
     }
 }
