@@ -36,7 +36,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         super.viewDidLoad()
 
         imageWidget.backgroundColor = UIColor.redColor()
-        toneCurveEditor.backgroundColor = UIColor.blueColor()
         
         view.addSubview(imageWidget)
         view.addSubview(toneCurveEditor)
