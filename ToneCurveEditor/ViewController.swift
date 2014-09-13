@@ -10,10 +10,11 @@ import UIKit
 
 class ViewController: UIViewController
 {
-
     let imageWidget = ImageWidget(frame: CGRectZero)
     let toneCurveEditor = ToneCurveEditor(frame: CGRectZero)
 
+    var curveValues = [0.0, 0.25, 0.5, 0.75, 1.0]
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -23,8 +24,15 @@ class ViewController: UIViewController
         view.addSubview(imageWidget)
         view.addSubview(toneCurveEditor)
         
-        toneCurveEditor.curveValues = [0.0, 0.25, 0.5, 0.75, 1.0]
-
+        toneCurveEditor.curveValues = curveValues
+        toneCurveEditor.addTarget(self, action: "toneCurveEditorChangedSelector:", forControlEvents: .ValueChanged)
+    }
+    
+    func toneCurveEditorChangedSelector(value : ToneCurveEditor)
+    {
+        curveValues = value.curveValues
+        
+        imageWidget.curveValues = curveValues
     }
     
     override func viewDidLayoutSubviews()

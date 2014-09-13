@@ -53,13 +53,42 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         viewController!.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    var curveValues: [Double] = [0.0, 0.25, 0.5, 0.75, 1.0]
+    {
+        didSet
+        {
+            applyFilter()
+        }
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
     {
         loadedImage = info[UIImagePickerControllerOriginalImage] as? UIImage;
         
-        imageView.image = loadedImage
+        applyFilter()
 
         viewController!.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func applyFilter()
+    {
+        let ciContext = CIContext(options: nil)
+        let coreImage = CIImage(image: loadedImage)
+        let filter = CIFilter(name: "CIToneCurve")
+        
+        filter.setValue(coreImage, forKey: kCIInputImageKey)
+        
+        filter.setValue(CIVector(x: 0.0, y: CGFloat(curveValues[0])), forKey: "inputPoint0")
+        filter.setValue(CIVector(x: 0.25, y: CGFloat(curveValues[1])), forKey: "inputPoint1")
+        filter.setValue(CIVector(x: 0.5, y: CGFloat(curveValues[2])), forKey: "inputPoint2")
+        filter.setValue(CIVector(x: 0.75, y: CGFloat(curveValues[3])), forKey: "inputPoint3")
+        filter.setValue(CIVector(x: 1.0, y: CGFloat(curveValues[4])), forKey: "inputPoint4")
+        
+        let filteredImageData = filter.valueForKey(kCIOutputImageKey) as CIImage
+        let filteredImageRef = ciContext.createCGImage(filteredImageData, fromRect: filteredImageData.extent())
+        let filteredImage = UIImage(CGImage: filteredImageRef)
+        
+        imageView.image = filteredImage
     }
     
     override func layoutSubviews()

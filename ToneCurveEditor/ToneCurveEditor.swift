@@ -73,6 +73,8 @@ class ToneCurveEditor: UIControl
         {
             curveValues.append(Double(slider.value))
         }
+        
+        sendActionsForControlEvents(.ValueChanged)
     }
     
     override func layoutSubviews()
