@@ -18,8 +18,7 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        
-        
+ 
         addSubview(imageView)
         
         loadImageButton.setTitle("Load Image", forState: .Normal)
@@ -59,6 +58,6 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
     {
         loadImageButton.frame = CGRect(x: 20, y: frame.height - 50, width: 100, height: 50)
         
-        imageView.frame = frame
+        imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
     }
 }
