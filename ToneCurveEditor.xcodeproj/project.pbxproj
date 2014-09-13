@@ -15,6 +15,7 @@
 		3E38F2D419C2B29100B86916 /* ToneCurveEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2D319C2B29100B86916 /* ToneCurveEditorTests.swift */; };
 		3E38F2E219C2CCD300B86916 /* ImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2E119C2CCD300B86916 /* ImageWidget.swift */; };
 		3E38F2E419C2CD0A00B86916 /* ToneCurveEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2E319C2CD0A00B86916 /* ToneCurveEditor.swift */; };
+		BE21CB6219C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE21CB6119C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		3E38F2D319C2B29100B86916 /* ToneCurveEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneCurveEditorTests.swift; sourceTree = "<group>"; };
 		3E38F2E119C2CCD300B86916 /* ImageWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidget.swift; sourceTree = "<group>"; };
 		3E38F2E319C2CD0A00B86916 /* ToneCurveEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToneCurveEditor.swift; sourceTree = "<group>"; };
+		BE21CB6119C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToneCurveEditorCurveLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			children = (
 				3E38F2E119C2CCD300B86916 /* ImageWidget.swift */,
 				3E38F2E319C2CD0A00B86916 /* ToneCurveEditor.swift */,
+				BE21CB6119C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift */,
 			);
 			name = widgets;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			files = (
 				3E38F2C019C2B29100B86916 /* ViewController.swift in Sources */,
 				3E38F2E219C2CCD300B86916 /* ImageWidget.swift in Sources */,
+				BE21CB6219C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift in Sources */,
 				3E38F2E419C2CD0A00B86916 /* ToneCurveEditor.swift in Sources */,
 				3E38F2BE19C2B29100B86916 /* AppDelegate.swift in Sources */,
 			);
@@ -426,6 +430,7 @@
 				3E38F2D919C2B29100B86916 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E38F2DA19C2B29100B86916 /* Build configuration list for PBXNativeTarget "ToneCurveEditorTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +439,7 @@
 				3E38F2DC19C2B29100B86916 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

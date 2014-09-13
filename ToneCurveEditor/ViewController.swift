@@ -39,6 +39,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         view.addSubview(imageWidget)
         view.addSubview(toneCurveEditor)
+        
+        toneCurveEditor.curveValues = [0.0, 0.25, 0.5, 0.75, 1.0]
     }
     
     override func viewDidLayoutSubviews()
