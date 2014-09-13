@@ -46,4 +46,6 @@ class ToneCurveEditorCurveLayer: CALayer
             CGContextStrokePath(ctx)
         }
     }
+    
+
 }

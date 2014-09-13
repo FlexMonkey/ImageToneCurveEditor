@@ -15,6 +15,10 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
     let imageView = UIImageView(frame: CGRectZero)
     let activityIndicator = UIActivityIndicatorView(frame: CGRectZero)
     
+    let ciContext = CIContext(options: nil)
+    let filter = CIFilter(name: "CIToneCurve")
+    
+    var backgroundBlock : Async?
     var loadedImage : UIImage?
     var filteredImage : UIImage?
     
@@ -87,16 +91,18 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
     {
         backgroundBlock?.cancel()
+        backgroundBlock = nil
+        
         filterIsRunning = false
         
         loadedImage = info[UIImagePickerControllerOriginalImage] as? UIImage;
-  
+    
         applyFilterAsync()
 
         viewController!.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    var backgroundBlock : Async?
+
     
     func applyFilterAsync()
     {
@@ -105,7 +111,7 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
             if !self.filterIsRunning && self.loadedImage != nil
             {
                 self.filterIsRunning = true
-                self.filteredImage = ImageWidget.applyFilter(loadedImage: self.loadedImage!, curveValues: self.curveValues)
+                self.filteredImage = ImageWidget.applyFilter(loadedImage: self.loadedImage!, curveValues: self.curveValues, ciContext: self.ciContext, filter: self.filter)
             }
         }
         .main
@@ -115,12 +121,11 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         }
     }
     
-    class func applyFilter(#loadedImage: UIImage, curveValues: [Double]) -> UIImage
+    
+    class func applyFilter(#loadedImage: UIImage, curveValues: [Double], ciContext: CIContext, filter: CIFilter) -> UIImage
     {
-        let ciContext = CIContext(options: nil)
         let coreImage = CIImage(image: loadedImage)
-        let filter = CIFilter(name: "CIToneCurve")
-        
+ 
         filter.setValue(coreImage, forKey: kCIInputImageKey)
         
         filter.setValue(CIVector(x: 0.0, y: CGFloat(curveValues[0])), forKey: "inputPoint0")
@@ -132,7 +137,7 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         let filteredImageData = filter.valueForKey(kCIOutputImageKey) as CIImage
         let filteredImageRef = ciContext.createCGImage(filteredImageData, fromRect: filteredImageData.extent())
         let filteredImage = UIImage(CGImage: filteredImageRef)
-  
+       
         return filteredImage
     }
     
