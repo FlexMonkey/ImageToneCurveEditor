@@ -8,15 +8,57 @@
 
 import UIKit
 
-class ImageWidget: UIControl {
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect)
+class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerControllerDelegate
+{
+    let loadImageButton = UIButton(frame: CGRectZero)
+    let imageView = UIImageView(frame: CGRectZero)
+    
+    weak var viewController : UIViewController?
+    
+    override init(frame: CGRect)
     {
-        // Drawing code
+        super.init(frame: frame)
+        
+        
+        addSubview(imageView)
+        
+        loadImageButton.setTitle("Load Image", forState: .Normal)
+        loadImageButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        
+        loadImageButton.addTarget(self, action: "loadImageButtonClickHandler:", forControlEvents: .TouchUpInside)
+        
+        addSubview(loadImageButton)
     }
-    */
-
+    
+    required init(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+    }
+    
+    func loadImageButtonClickHandler(button : UIButton)
+    {
+        var imagePicker = UIImagePickerController()
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
+        
+        viewController!.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
+    {
+        let foo = info[UIImagePickerControllerOriginalImage] as UIImage;
+        
+        imageView.image = foo
+        
+        viewController!.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func layoutSubviews()
+    {
+        loadImageButton.frame = CGRect(x: 20, y: frame.height - 50, width: 100, height: 50)
+        
+        imageView.frame = frame
+    }
 }

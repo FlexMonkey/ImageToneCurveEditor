@@ -33,14 +33,16 @@ class ToneCurveEditorCurveLayer: CALayer
                 {
                     path.moveToPoint(CGPoint(x: pathPointX,y: pathPointY))
                 }
-                
-                path.addLineToPoint(CGPoint(x: pathPointX, y: pathPointY))
+                else
+                {
+                    path.addLineToPoint(CGPoint(x: pathPointX, y: pathPointY))
+                }
             }
     
             CGContextSetLineJoin(ctx, kCGLineJoinRound)
             CGContextAddPath(ctx, path.CGPath)
-            CGContextSetStrokeColorWithColor(ctx, UIColor.blueColor().CGColor)
-            CGContextSetLineWidth(ctx, 5)
+            CGContextSetStrokeColorWithColor(ctx, UIColor.lightGrayColor().CGColor)
+            CGContextSetLineWidth(ctx, 2)
             CGContextStrokePath(ctx)
         }
     }

@@ -8,39 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate
+class ViewController: UIViewController
 {
 
     let imageWidget = ImageWidget(frame: CGRectZero)
     let toneCurveEditor = ToneCurveEditor(frame: CGRectZero)
-    
-    /*
-    curve through points: http://stackoverflow.com/questions/7054272/how-to-draw-smooth-curve-through-n-points-using-javascript-html5-canvas
-    
-    // move to the first point
-    ctx.moveTo(points[0].x, points[0].y);
-
-
-    for (i = 1; i < points.length - 2; i ++)
-    {
-    var xc = (points[i].x + points[i + 1].x) / 2;
-    var yc = (points[i].y + points[i + 1].y) / 2;
-    ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
-    }
-    // curve through the last two points
-    ctx.quadraticCurveTo(points[i].x, points[i].y, points[i+1].x,points[i+1].y);
-    */
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        imageWidget.backgroundColor = UIColor.redColor()
+        imageWidget.viewController = self
         
         view.addSubview(imageWidget)
         view.addSubview(toneCurveEditor)
         
         toneCurveEditor.curveValues = [0.0, 0.25, 0.5, 0.75, 1.0]
+
     }
     
     override func viewDidLayoutSubviews()
@@ -65,33 +49,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
 
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func buttonClickHandler(sender: AnyObject)
-    {
-        var imagePicker = UIImagePickerController()
-        
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
-        
-        self.presentViewController(imagePicker, animated: true, completion: nil)
-    }
-
-    @IBOutlet weak var imageView: UIImageView!
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
-    {
-        let foo = info[UIImagePickerControllerOriginalImage] as UIImage;
-        
-        imageView.image = foo
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+
     
     
 }
