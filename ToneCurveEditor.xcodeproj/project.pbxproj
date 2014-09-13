@@ -13,6 +13,8 @@
 		3E38F2C519C2B29100B86916 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E38F2C419C2B29100B86916 /* Images.xcassets */; };
 		3E38F2C819C2B29100B86916 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E38F2C619C2B29100B86916 /* LaunchScreen.xib */; };
 		3E38F2D419C2B29100B86916 /* ToneCurveEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2D319C2B29100B86916 /* ToneCurveEditorTests.swift */; };
+		3E38F2E219C2CCD300B86916 /* ImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2E119C2CCD300B86916 /* ImageWidget.swift */; };
+		3E38F2E419C2CD0A00B86916 /* ToneCurveEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2E319C2CD0A00B86916 /* ToneCurveEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		3E38F2CD19C2B29100B86916 /* ToneCurveEditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToneCurveEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E38F2D219C2B29100B86916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E38F2D319C2B29100B86916 /* ToneCurveEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneCurveEditorTests.swift; sourceTree = "<group>"; };
+		3E38F2E119C2CCD300B86916 /* ImageWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidget.swift; sourceTree = "<group>"; };
+		3E38F2E319C2CD0A00B86916 /* ToneCurveEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToneCurveEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		3E38F2BA19C2B29100B86916 /* ToneCurveEditor */ = {
 			isa = PBXGroup;
 			children = (
+				3E38F2DD19C2CC8200B86916 /* widgets */,
 				3E38F2BD19C2B29100B86916 /* AppDelegate.swift */,
 				3E38F2BF19C2B29100B86916 /* ViewController.swift */,
 				3E38F2C119C2B29100B86916 /* Main.storyboard */,
@@ -110,6 +115,15 @@
 				3E38F2D219C2B29100B86916 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E38F2DD19C2CC8200B86916 /* widgets */ = {
+			isa = PBXGroup;
+			children = (
+				3E38F2E119C2CCD300B86916 /* ImageWidget.swift */,
+				3E38F2E319C2CD0A00B86916 /* ToneCurveEditor.swift */,
+			);
+			name = widgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E38F2C019C2B29100B86916 /* ViewController.swift in Sources */,
+				3E38F2E219C2CCD300B86916 /* ImageWidget.swift in Sources */,
+				3E38F2E419C2CD0A00B86916 /* ToneCurveEditor.swift in Sources */,
 				3E38F2BE19C2B29100B86916 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,9 +354,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ToneCurveEditor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -348,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ToneCurveEditor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
