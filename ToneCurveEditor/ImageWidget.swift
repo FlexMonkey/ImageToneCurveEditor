@@ -95,9 +95,24 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         
         filterIsRunning = false
         
-        loadedImage = info[UIImagePickerControllerOriginalImage] as? UIImage;
-    
-        applyFilterAsync()
+        if let rawImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+            let boundingSquareSideLength = CGFloat(1024)
+            let imgScale = rawImage.size.width > rawImage.size.height ? boundingSquareSideLength / rawImage.size.width : boundingSquareSideLength / rawImage.size.height
+            let newWidth = rawImage.size.width * imgScale
+            let newHeight = rawImage.size.height * imgScale
+            let newSize = CGSize(width: newWidth, height: newHeight)
+
+            UIGraphicsBeginImageContext(newSize)
+            
+            rawImage.drawInRect(CGRect(x: 0, y: 0, width: rawImage.size.width * imgScale, height: rawImage.size.height * imgScale))
+            
+            loadedImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+            UIGraphicsEndImageContext();
+            
+            applyFilterAsync()
+        }
 
         viewController!.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -125,7 +140,7 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
     class func applyFilter(#loadedImage: UIImage, curveValues: [Double], ciContext: CIContext, filter: CIFilter) -> UIImage
     {
         let coreImage = CIImage(image: loadedImage)
- 
+        
         filter.setValue(coreImage, forKey: kCIInputImageKey)
         
         filter.setValue(CIVector(x: 0.0, y: CGFloat(curveValues[0])), forKey: "inputPoint0")
