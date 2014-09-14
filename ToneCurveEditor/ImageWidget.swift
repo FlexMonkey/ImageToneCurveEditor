@@ -97,19 +97,7 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         
         if let rawImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
-            let boundingSquareSideLength = CGFloat(1024)
-            let imgScale = rawImage.size.width > rawImage.size.height ? boundingSquareSideLength / rawImage.size.width : boundingSquareSideLength / rawImage.size.height
-            let newWidth = rawImage.size.width * imgScale
-            let newHeight = rawImage.size.height * imgScale
-            let newSize = CGSize(width: newWidth, height: newHeight)
-
-            UIGraphicsBeginImageContext(newSize)
-            
-            rawImage.drawInRect(CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
-            
-            loadedImage = UIGraphicsGetImageFromCurrentImageContext()
-            
-            UIGraphicsEndImageContext();
+            loadedImage = rawImage.resizeToBoundingSquare(1024)
             
             applyFilterAsync()
         }

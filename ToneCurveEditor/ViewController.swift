@@ -14,8 +14,6 @@ class ViewController: UIViewController
     let toneCurveEditor = ToneCurveEditor(frame: CGRectZero)
     let resetButton = UIButton(frame: CGRectZero)
 
-    
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()

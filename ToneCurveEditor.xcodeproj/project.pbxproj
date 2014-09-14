@@ -15,6 +15,7 @@
 		3E38F2D419C2B29100B86916 /* ToneCurveEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2D319C2B29100B86916 /* ToneCurveEditorTests.swift */; };
 		3E38F2E219C2CCD300B86916 /* ImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2E119C2CCD300B86916 /* ImageWidget.swift */; };
 		3E38F2E419C2CD0A00B86916 /* ToneCurveEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2E319C2CD0A00B86916 /* ToneCurveEditor.swift */; };
+		BE12432819C58041001FFC85 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE12432719C58041001FFC85 /* UIImageExtension.swift */; };
 		BE21CB6219C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE21CB6119C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift */; };
 		BE21CB6519C46402006BD6F4 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE21CB6419C46402006BD6F4 /* Async.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		3E38F2D319C2B29100B86916 /* ToneCurveEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneCurveEditorTests.swift; sourceTree = "<group>"; };
 		3E38F2E119C2CCD300B86916 /* ImageWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidget.swift; sourceTree = "<group>"; };
 		3E38F2E319C2CD0A00B86916 /* ToneCurveEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToneCurveEditor.swift; sourceTree = "<group>"; };
+		BE12432719C58041001FFC85 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		BE21CB6119C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToneCurveEditorCurveLayer.swift; sourceTree = "<group>"; };
 		BE21CB6419C46402006BD6F4 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 		3E38F2BA19C2B29100B86916 /* ToneCurveEditor */ = {
 			isa = PBXGroup;
 			children = (
+				BE12432919C58116001FFC85 /* extensions */,
 				BE21CB6319C463DD006BD6F4 /* async */,
 				3E38F2DD19C2CC8200B86916 /* widgets */,
 				3E38F2BD19C2B29100B86916 /* AppDelegate.swift */,
@@ -130,6 +133,14 @@
 				BE21CB6119C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift */,
 			);
 			name = widgets;
+			sourceTree = "<group>";
+		};
+		BE12432919C58116001FFC85 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BE12432719C58041001FFC85 /* UIImageExtension.swift */,
+			);
+			name = extensions;
 			sourceTree = "<group>";
 		};
 		BE21CB6319C463DD006BD6F4 /* async */ = {
@@ -242,6 +253,7 @@
 			files = (
 				3E38F2C019C2B29100B86916 /* ViewController.swift in Sources */,
 				3E38F2E219C2CCD300B86916 /* ImageWidget.swift in Sources */,
+				BE12432819C58041001FFC85 /* UIImageExtension.swift in Sources */,
 				BE21CB6219C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift in Sources */,
 				3E38F2E419C2CD0A00B86916 /* ToneCurveEditor.swift in Sources */,
 				BE21CB6519C46402006BD6F4 /* Async.swift in Sources */,
