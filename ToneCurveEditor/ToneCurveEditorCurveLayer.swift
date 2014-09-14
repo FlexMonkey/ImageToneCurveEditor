@@ -18,6 +18,7 @@ class ToneCurveEditorCurveLayer: CALayer
         if let curveValues = toneCurveEditor?.curveValues
         {
             var path = UIBezierPath()
+            var previousPoint = CGPointZero
             
             let margin = 20
             let thumbRadius = 15
@@ -31,11 +32,21 @@ class ToneCurveEditorCurveLayer: CALayer
                 
                 if i == 0
                 {
-                    path.moveToPoint(CGPoint(x: pathPointX,y: pathPointY))
+                    previousPoint = CGPoint(x: pathPointX,y: pathPointY)
+                    
+                    path.moveToPoint(previousPoint)
                 }
                 else
                 {
-                    path.addLineToPoint(CGPoint(x: pathPointX, y: pathPointY))
+                    // TODO - implement as Catmull-Rom
+                    let currentPoint = CGPoint(x: pathPointX, y: pathPointY)
+
+                    let controlPointOne = CGPoint(x: currentPoint.x, y: previousPoint.y)
+                    let controlPointTwo = CGPoint(x: previousPoint.x, y: currentPoint.y)
+                    
+                    path.addCurveToPoint(CGPoint(x: pathPointX, y: pathPointY), controlPoint1: controlPointOne, controlPoint2: controlPointTwo)
+                    
+                    previousPoint = currentPoint
                 }
             }
     
@@ -46,6 +57,5 @@ class ToneCurveEditorCurveLayer: CALayer
             CGContextStrokePath(ctx)
         }
     }
-    
 
 }
