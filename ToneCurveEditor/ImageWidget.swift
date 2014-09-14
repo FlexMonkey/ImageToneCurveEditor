@@ -97,7 +97,7 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         
         if let rawImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
-            loadedImage = rawImage.resizeToBoundingSquare(1024)
+            loadedImage = rawImage.resizeToBoundingSquare(boundingSquareSideLength: 1024)
             
             applyFilterAsync()
         }
