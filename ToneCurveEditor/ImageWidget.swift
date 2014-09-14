@@ -105,7 +105,7 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
 
             UIGraphicsBeginImageContext(newSize)
             
-            rawImage.drawInRect(CGRect(x: 0, y: 0, width: rawImage.size.width * imgScale, height: rawImage.size.height * imgScale))
+            rawImage.drawInRect(CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
             
             loadedImage = UIGraphicsGetImageFromCurrentImageContext()
             
