@@ -15,6 +15,7 @@
 		3E38F2D419C2B29100B86916 /* ToneCurveEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2D319C2B29100B86916 /* ToneCurveEditorTests.swift */; };
 		3E38F2E219C2CCD300B86916 /* ImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2E119C2CCD300B86916 /* ImageWidget.swift */; };
 		3E38F2E419C2CD0A00B86916 /* ToneCurveEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2E319C2CD0A00B86916 /* ToneCurveEditor.swift */; };
+		3E38F2E819C776B700B86916 /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38F2E719C776B700B86916 /* UIBezierPathExtension.swift */; };
 		BE12432819C58041001FFC85 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE12432719C58041001FFC85 /* UIImageExtension.swift */; };
 		BE21CB6219C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE21CB6119C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift */; };
 		BE21CB6519C46402006BD6F4 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE21CB6419C46402006BD6F4 /* Async.swift */; };
@@ -43,6 +44,7 @@
 		3E38F2D319C2B29100B86916 /* ToneCurveEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneCurveEditorTests.swift; sourceTree = "<group>"; };
 		3E38F2E119C2CCD300B86916 /* ImageWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidget.swift; sourceTree = "<group>"; };
 		3E38F2E319C2CD0A00B86916 /* ToneCurveEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToneCurveEditor.swift; sourceTree = "<group>"; };
+		3E38F2E719C776B700B86916 /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
 		BE12432719C58041001FFC85 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		BE21CB6119C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToneCurveEditorCurveLayer.swift; sourceTree = "<group>"; };
 		BE21CB6419C46402006BD6F4 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				BE12432719C58041001FFC85 /* UIImageExtension.swift */,
+				3E38F2E719C776B700B86916 /* UIBezierPathExtension.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				BE12432819C58041001FFC85 /* UIImageExtension.swift in Sources */,
 				BE21CB6219C40907006BD6F4 /* ToneCurveEditorCurveLayer.swift in Sources */,
 				3E38F2E419C2CD0A00B86916 /* ToneCurveEditor.swift in Sources */,
+				3E38F2E819C776B700B86916 /* UIBezierPathExtension.swift in Sources */,
 				BE21CB6519C46402006BD6F4 /* Async.swift in Sources */,
 				3E38F2BE19C2B29100B86916 /* AppDelegate.swift in Sources */,
 			);
