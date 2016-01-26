@@ -25,40 +25,40 @@ extension UIBezierPath
         {
             var currentPoint = interpolationPoints[index]
             var nextIndex = (index + 1) % interpolationPoints.count
-            var prevIndex = (index - 1 < 0 ? interpolationPoints.count - 1 : index - 1);
+            var prevIndex = (index - 1 < 0 ? interpolationPoints.count - 1 : index - 1)
             var previousPoint = interpolationPoints[prevIndex]
             var nextPoint = interpolationPoints[nextIndex]
-            let endPoint = nextPoint;
-            var mx : Double = 0.0
-            var my : Double = 0.0
+            let endPoint = nextPoint
+            var mx : Double
+            var my : Double
             
             if index > 0
             {
-                mx = Double(nextPoint.x - currentPoint.x) * 0.5 + Double(currentPoint.x - previousPoint.x) * 0.5;
-                my = Double(nextPoint.y - currentPoint.y) * 0.5 + Double(currentPoint.y - previousPoint.y) * 0.5;
+                mx = Double(nextPoint.x - currentPoint.x) * 0.5 + Double(currentPoint.x - previousPoint.x) * 0.5
+                my = Double(nextPoint.y - currentPoint.y) * 0.5 + Double(currentPoint.y - previousPoint.y) * 0.5
             }
             else
             {
-                mx = Double(nextPoint.x - currentPoint.x) * 0.5;
-                my = Double(nextPoint.y - currentPoint.y) * 0.5;
+                mx = Double(nextPoint.x - currentPoint.x) * 0.5
+                my = Double(nextPoint.y - currentPoint.y) * 0.5
             }
             
             let controlPoint1 = CGPoint(x: Double(currentPoint.x) + mx / 3.0, y: Double(currentPoint.y) + my / 3.0)
             currentPoint = interpolationPoints[nextIndex]
             nextIndex = (nextIndex + 1) % interpolationPoints.count
-            prevIndex = index;
+            prevIndex = index
             previousPoint = interpolationPoints[prevIndex]
             nextPoint = interpolationPoints[nextIndex]
             
             if index < n - 1
             {
-                mx = Double(nextPoint.x - currentPoint.x) * 0.5 + Double(currentPoint.x - previousPoint.x) * 0.5;
-                my = Double(nextPoint.y - currentPoint.y) * 0.5 + Double(currentPoint.y - previousPoint.y) * 0.5;
+                mx = Double(nextPoint.x - currentPoint.x) * 0.5 + Double(currentPoint.x - previousPoint.x) * 0.5
+                my = Double(nextPoint.y - currentPoint.y) * 0.5 + Double(currentPoint.y - previousPoint.y) * 0.5
             }
             else
             {
-                mx = Double(currentPoint.x - previousPoint.x) * 0.5;
-                my = Double(currentPoint.y - previousPoint.y) * 0.5;
+                mx = Double(currentPoint.x - previousPoint.x) * 0.5
+                my = Double(currentPoint.y - previousPoint.y) * 0.5
             }
             
             let controlPoint2 = CGPoint(x: Double(currentPoint.x) - mx / 3.0, y: Double(currentPoint.y) - my / 3.0)
