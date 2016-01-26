@@ -46,7 +46,7 @@ class ToneCurveEditor: UIControl
     {
         let rotateTransform = CGAffineTransformIdentity
         
-        for i in 0..<5
+        for _ in 0..<5
         {
             let slider = UISlider(frame: CGRectZero)
   
