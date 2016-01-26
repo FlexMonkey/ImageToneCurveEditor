@@ -29,21 +29,21 @@ extension UIBezierPath
             var previousPoint = interpolationPoints[prevIndex]
             var nextPoint = interpolationPoints[nextIndex]
             let endPoint = nextPoint
-            var mx : Double
-            var my : Double
+            var mx : CGFloat
+            var my : CGFloat
             
             if index > 0
             {
-                mx = Double(nextPoint.x - previousPoint.x) / 2.0
-                my = Double(nextPoint.y - previousPoint.y) / 2.0
+                mx = (nextPoint.x - previousPoint.x) / 2.0
+                my = (nextPoint.y - previousPoint.y) / 2.0
             }
             else
             {
-                mx = Double(nextPoint.x - currentPoint.x) / 2.0
-                my = Double(nextPoint.y - currentPoint.y) / 2.0
+                mx = (nextPoint.x - currentPoint.x) / 2.0
+                my = (nextPoint.y - currentPoint.y) / 2.0
             }
             
-            let controlPoint1 = CGPoint(x: Double(currentPoint.x) + mx / 3.0, y: Double(currentPoint.y) + my / 3.0)
+            let controlPoint1 = CGPoint(x: currentPoint.x + mx / 3.0, y: currentPoint.y + my / 3.0)
             currentPoint = interpolationPoints[nextIndex]
             nextIndex = (nextIndex + 1) % interpolationPoints.count
             prevIndex = index
@@ -52,16 +52,16 @@ extension UIBezierPath
             
             if index < n - 1
             {
-                mx = Double(nextPoint.x - previousPoint.x) / 2.0
-                my = Double(nextPoint.y - previousPoint.y) / 2.0
+                mx = (nextPoint.x - previousPoint.x) / 2.0
+                my = (nextPoint.y - previousPoint.y) / 2.0
             }
             else
             {
-                mx = Double(currentPoint.x - previousPoint.x) / 2.0
-                my = Double(currentPoint.y - previousPoint.y) / 2.0
+                mx = (currentPoint.x - previousPoint.x) / 2.0
+                my = (currentPoint.y - previousPoint.y) / 2.0
             }
             
-            let controlPoint2 = CGPoint(x: Double(currentPoint.x) - mx / 3.0, y: Double(currentPoint.y) - my / 3.0)
+            let controlPoint2 = CGPoint(x: currentPoint.x - mx / 3.0, y: currentPoint.y - my / 3.0)
             
             self.addCurveToPoint(endPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
         }
