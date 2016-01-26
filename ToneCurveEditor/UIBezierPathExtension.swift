@@ -34,13 +34,13 @@ extension UIBezierPath
             
             if index > 0
             {
-                mx = Double(nextPoint.x - currentPoint.x) * 0.5 + Double(currentPoint.x - previousPoint.x) * 0.5
-                my = Double(nextPoint.y - currentPoint.y) * 0.5 + Double(currentPoint.y - previousPoint.y) * 0.5
+                mx = Double(nextPoint.x - previousPoint.x) / 2.0
+                my = Double(nextPoint.y - previousPoint.y) / 2.0
             }
             else
             {
-                mx = Double(nextPoint.x - currentPoint.x) * 0.5
-                my = Double(nextPoint.y - currentPoint.y) * 0.5
+                mx = Double(nextPoint.x - currentPoint.x) / 2.0
+                my = Double(nextPoint.y - currentPoint.y) / 2.0
             }
             
             let controlPoint1 = CGPoint(x: Double(currentPoint.x) + mx / 3.0, y: Double(currentPoint.y) + my / 3.0)
@@ -52,13 +52,13 @@ extension UIBezierPath
             
             if index < n - 1
             {
-                mx = Double(nextPoint.x - currentPoint.x) * 0.5 + Double(currentPoint.x - previousPoint.x) * 0.5
-                my = Double(nextPoint.y - currentPoint.y) * 0.5 + Double(currentPoint.y - previousPoint.y) * 0.5
+                mx = Double(nextPoint.x - previousPoint.x) / 2.0
+                my = Double(nextPoint.y - previousPoint.y) / 2.0
             }
             else
             {
-                mx = Double(currentPoint.x - previousPoint.x) * 0.5
-                my = Double(currentPoint.y - previousPoint.y) * 0.5
+                mx = Double(currentPoint.x - previousPoint.x) / 2.0
+                my = Double(currentPoint.y - previousPoint.y) / 2.0
             }
             
             let controlPoint2 = CGPoint(x: Double(currentPoint.x) - mx / 3.0, y: Double(currentPoint.y) - my / 3.0)
