@@ -16,18 +16,14 @@ extension UIBezierPath
 {
     func interpolatePointsWithHermite(interpolationPoints : [CGPoint])
     {
+        guard !interpolationPoints.isEmpty else { return }
+        self.moveToPoint(interpolationPoints[0])
+        
         let n = interpolationPoints.count - 1
         
         for var index = 0; index < n; ++index
         {
-            
             var currentPoint = interpolationPoints[index]
-            
-            if index == 0
-            {
-                self.moveToPoint(interpolationPoints[0])
-            }
-            
             var nextIndex = (index + 1) % interpolationPoints.count
             var prevIndex = (index - 1 < 0 ? interpolationPoints.count - 1 : index - 1);
             var previousPoint = interpolationPoints[prevIndex]
