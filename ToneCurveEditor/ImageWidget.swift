@@ -48,14 +48,14 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         addSubview(activityIndicator)
     }
     
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
     }
     
     func loadImageButtonClickHandler(button : UIButton)
     {
-        var imagePicker = UIImagePickerController()
+        let imagePicker = UIImagePickerController()
         
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
@@ -88,7 +88,7 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         }
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
     {
         backgroundBlock?.cancel()
         backgroundBlock = nil
@@ -111,11 +111,14 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
     {
         backgroundBlock = Async.background
         {
-            if !self.filterIsRunning && self.loadedImage != nil
-            {
-                self.filterIsRunning = true
-                self.filteredImage = ImageWidget.applyFilter(loadedImage: self.loadedImage!, curveValues: self.curveValues, ciContext: self.ciContext, filter: self.filter)
+            guard !self.filterIsRunning, let
+                filter = self.filter,
+                loadedImage = self.loadedImage else {
+                    return
             }
+          
+            self.filterIsRunning = true
+            self.filteredImage = ImageWidget.applyFilter(loadedImage: loadedImage, curveValues: self.curveValues, ciContext: self.ciContext, filter: filter)
         }
         .main
         {
@@ -125,7 +128,7 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
     }
     
     
-    class func applyFilter(#loadedImage: UIImage, curveValues: [Double], ciContext: CIContext, filter: CIFilter) -> UIImage
+    class func applyFilter(loadedImage loadedImage: UIImage, curveValues: [Double], ciContext: CIContext, filter: CIFilter) -> UIImage
     {
         let coreImage = CIImage(image: loadedImage)
         
@@ -137,8 +140,8 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         filter.setValue(CIVector(x: 0.75, y: CGFloat(curveValues[3])), forKey: "inputPoint3")
         filter.setValue(CIVector(x: 1.0, y: CGFloat(curveValues[4])), forKey: "inputPoint4")
         
-        let filteredImageData = filter.valueForKey(kCIOutputImageKey) as CIImage
-        let filteredImageRef = ciContext.createCGImage(filteredImageData, fromRect: filteredImageData.extent())
+        let filteredImageData = filter.valueForKey(kCIOutputImageKey) as! CIImage
+        let filteredImageRef = ciContext.createCGImage(filteredImageData, fromRect: filteredImageData.extent)
         let filteredImage = UIImage(CGImage: filteredImageRef)
        
         return filteredImage

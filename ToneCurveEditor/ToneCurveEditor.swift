@@ -24,7 +24,7 @@ class ToneCurveEditor: UIControl
         createSliders()
     }
 
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
     }
@@ -33,7 +33,7 @@ class ToneCurveEditor: UIControl
     {
         didSet
         {
-            for (i : Int, value : Double) in enumerate(curveValues)
+            for (i, value): (Int, Double) in curveValues.enumerate()
             {
                 sliders[i].value = Float(value)
             }
@@ -61,7 +61,7 @@ class ToneCurveEditor: UIControl
     
     func drawCurve()
     {
-        curveLayer.frame = bounds.rectByInsetting(dx: 0, dy: 0)
+        curveLayer.frame = bounds.insetBy(dx: 0, dy: 0)
         curveLayer.setNeedsDisplay()
     }
     
@@ -83,7 +83,7 @@ class ToneCurveEditor: UIControl
         let targetHeight = Int(frame.height) - margin - margin
         let targetWidth = Int(frame.width) / sliders.count
         
-        for (i : Int, slider : UISlider) in enumerate(sliders)
+        for (i, slider): (Int, UISlider) in sliders.enumerate()
         {
             let targetX = i * Int(frame.width) / sliders.count
 

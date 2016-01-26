@@ -198,6 +198,8 @@
 		3E38F2B019C2B29000B86916 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Simon Gladman";
 				TargetAttributes = {
