@@ -25,7 +25,7 @@ extension UIBezierPath
         {
             var currentPoint = interpolationPoints[index]
             var nextIndex = (index + 1) % interpolationPoints.count
-            var prevIndex = (index - 1 < 0 ? interpolationPoints.count - 1 : index - 1)
+            var prevIndex = index == 0 ? interpolationPoints.count - 1 : index - 1
             var previousPoint = interpolationPoints[prevIndex]
             var nextPoint = interpolationPoints[nextIndex]
             let endPoint = nextPoint
