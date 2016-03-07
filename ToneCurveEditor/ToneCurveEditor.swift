@@ -11,6 +11,7 @@ import UIKit
 class ToneCurveEditor: UIControl
 {
     var sliders = [UISlider]()
+    var labels = [UILabel]()
     let curveLayer = ToneCurveEditorCurveLayer()
     
     override init(frame: CGRect)
@@ -22,6 +23,7 @@ class ToneCurveEditor: UIControl
         layer.addSublayer(curveLayer)
   
         createSliders()
+        createLabels()
     }
 
     required init?(coder aDecoder: NSCoder)
@@ -36,6 +38,7 @@ class ToneCurveEditor: UIControl
             for (i, value): (Int, Double) in curveValues.enumerate()
             {
                 sliders[i].value = Float(value)
+                labels[i].text = String(Float(value))
             }
             
             drawCurve()
@@ -51,11 +54,25 @@ class ToneCurveEditor: UIControl
             let slider = UISlider(frame: CGRectZero)
   
             slider.transform = CGAffineTransformRotate(rotateTransform, CGFloat(-90.0 * M_PI / 180.0));
-            slider.addTarget(self, action: "sliderChangeHandler:", forControlEvents: .ValueChanged)
+            slider.addTarget(self, action: #selector(ToneCurveEditor.sliderChangeHandler(_:)), forControlEvents: .ValueChanged)
             
             sliders.append(slider)
             
             addSubview(slider)
+        }
+    }
+    
+    func createLabels()
+    {
+        for _ in 0..<5
+        {
+            let label = UILabel(frame: CGRectZero)
+            
+            //label.textAlignment = NSTextAlignment(rawValue: 2)!
+            
+            labels.append(label)
+            
+            addSubview(label)
         }
     }
     
@@ -67,12 +84,10 @@ class ToneCurveEditor: UIControl
     
     func sliderChangeHandler(slider : UISlider)
     {
-        curveValues = [Double]()
-        
-        for slider in sliders
-        {
-            curveValues.append(Double(slider.value))
-        }
+        let index = sliders.indexOf(slider)
+        curveValues[index!] = Double(slider.value)
+        let label = labels[index!]
+        label.text = String(slider.value)
         
         sendActionsForControlEvents(.ValueChanged)
     }
@@ -88,6 +103,13 @@ class ToneCurveEditor: UIControl
             let targetX = i * Int(frame.width) / sliders.count
 
             slider.frame = CGRect(x: targetX, y: margin, width: targetWidth, height: targetHeight)
+        }
+        
+        for (i, label): (Int, UILabel) in labels.enumerate()
+        {
+            let targetX = i * Int(frame.width) / labels.count
+            
+            label.frame = CGRect(x: targetX, y: (targetHeight - (margin * 2)), width: targetWidth - margin, height: (margin * 2))
         }
         
         drawCurve()

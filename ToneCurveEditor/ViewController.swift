@@ -22,19 +22,24 @@ class ViewController: UIViewController
         
         resetButton.setTitle("Reset Curve", forState: .Normal)
         resetButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        resetButton.addTarget(self, action: "resetButtonClickedSelector:", forControlEvents: .TouchUpInside)
+        resetButton.addTarget(self, action: #selector(ViewController.resetButtonClickedSelector(_:)), forControlEvents: .TouchUpInside)
         
         view.addSubview(imageWidget)
         view.addSubview(toneCurveEditor)
         view.addSubview(resetButton)
         
         toneCurveEditor.curveValues = curveValues
-        toneCurveEditor.addTarget(self, action: "toneCurveEditorChangedSelector:", forControlEvents: .ValueChanged)
+        toneCurveEditor.addTarget(self, action: #selector(ViewController.toneCurveEditorChangedSelector(_:)), forControlEvents: .ValueChanged)
+    }
+    
+    func resetCurveValues()
+    {
+        curveValues = [0.0, 0.25, 0.5, 0.75, 1.0]
     }
     
     func resetButtonClickedSelector(value: UIButton)
     {
-        curveValues = [0.0, 0.25, 0.5, 0.75, 1.0]
+        self.resetCurveValues()
     }
     
     func toneCurveEditorChangedSelector(value : ToneCurveEditor)

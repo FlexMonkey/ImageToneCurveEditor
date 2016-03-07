@@ -38,7 +38,7 @@ class ImageWidget: UIControl , UINavigationControllerDelegate, UIImagePickerCont
         loadImageButton.setTitle("Load Image", forState: .Normal)
         loadImageButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         
-        loadImageButton.addTarget(self, action: "loadImageButtonClickHandler:", forControlEvents: .TouchUpInside)
+        loadImageButton.addTarget(self, action: #selector(ImageWidget.loadImageButtonClickHandler(_:)), forControlEvents: .TouchUpInside)
         
         addSubview(loadImageButton)
         
