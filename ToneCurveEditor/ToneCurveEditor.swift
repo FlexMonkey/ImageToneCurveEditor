@@ -109,7 +109,7 @@ class ToneCurveEditor: UIControl
         {
             let targetX = i * Int(frame.width) / labels.count
             
-            label.frame = CGRect(x: targetX, y: (targetHeight - (margin * 2)), width: targetWidth - margin, height: (margin * 2))
+            label.frame = CGRect(x: targetX + (targetWidth / 2) + (margin / 5), y: (targetHeight - (margin / 5)), width: targetWidth - (margin * 2), height: margin)
         }
         
         drawCurve()
