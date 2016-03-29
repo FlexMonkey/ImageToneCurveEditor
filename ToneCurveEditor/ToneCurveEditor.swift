@@ -10,6 +10,8 @@ import UIKit
 
 class ToneCurveEditor: UIControl
 {
+    let formatString = "%.03f"
+    
     var sliders = [UISlider]()
     var labels = [UILabel]()
     let curveLayer = ToneCurveEditorCurveLayer()
@@ -38,7 +40,7 @@ class ToneCurveEditor: UIControl
             for (i, value): (Int, Double) in curveValues.enumerate()
             {
                 sliders[i].value = Float(value)
-                labels[i].text = String(Float(value))
+                labels[i].text = String(format: formatString, value)
             }
             
             drawCurve()
@@ -87,7 +89,7 @@ class ToneCurveEditor: UIControl
         let index = sliders.indexOf(slider)
         curveValues[index!] = Double(slider.value)
         let label = labels[index!]
-        label.text = String(slider.value)
+        label.text = String(format: formatString, slider.value)
         
         sendActionsForControlEvents(.ValueChanged)
     }
